@@ -1,14 +1,12 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
-import Home from "./components/home/Home";
+import Home from "./pages/home/Home";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
-import RegisterPatient from "./components/formPatient/RegisterPatient";
-import LoginPatient from "./components/formPatient/LoginPatient";
-import RegisterDoctor from "./components/formDoctor/RegisterDoctor";
-import LoginDoctor from "./components/formDoctor/LoginDoctor";
-import NavbarDoctor from "./components/sideBarDoctor/NavbarDoctor";
-import NavbarPatient from "./components/sideBarPatient/NavbarPatient";
+import RegisterPatient from "./pages/formPatient/RegisterPatient";
+import LoginPatient from "./pages/formPatient/LoginPatient";
+import RegisterDoctor from "./pages/formDoctor/RegisterDoctor";
+import LoginDoctor from "./pages/formDoctor/LoginDoctor";
+import PatientDashboard from "./pages/Patient Dashboard/PatientDashboard";
+import NotFound from "./pages/notFound/NotFound";
 
 function App() {
   return (
@@ -17,23 +15,27 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/RegisterPatient">
+        <Route path="/RegisterPatient">
           <RegisterPatient />
         </Route>
-        <Route exact path="/LoginPatient">
+        <Route path="/LoginPatient">
           <LoginPatient />
         </Route>
-        <Route exact path="/RegisterDoctor">
+        <Route path="/RegisterDoctor">
           <RegisterDoctor />
         </Route>
-        <Route exact path="/LoginDoctor">
+        <Route path="/LoginDoctor">
           <LoginDoctor />
         </Route>
-        <Route exact path="/patient">
-          <NavbarPatient />
+        <Route path="/patient">
+          <PatientDashboard />
         </Route>
-        <Route path="/doctor">
+        {/* <Route path="/doctor">
           <NavbarDoctor />
+        </Route> */}
+
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </div>
